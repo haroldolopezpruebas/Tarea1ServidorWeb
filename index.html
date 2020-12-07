@@ -53,6 +53,7 @@
 
     <script>
 
+        // Se genera un arreglo inicial para hacer la conversión
         document.getElementById('textoJSON').value = `
         [
             {
@@ -88,6 +89,7 @@
 
         const enviarTabla = () => {
             
+            // Se inicia un proceso para hacer una petición POST al servidor
             const params = new FormData();
             params.append('opcion','tablaExcel');
             params.append('texto',document.getElementById("texto").value);
@@ -109,9 +111,7 @@
 
         const enviarFormulario = () => {
             
-
-            console.log(JSON.parse(document.getElementById("textoJSON").value));
-
+            // Se inicia un proceso para hacer una petición POST al servidor
             const params = new FormData();
             params.append('opcion','formularioJSON');
             params.append('texto',document.getElementById("textoJSON").value);
