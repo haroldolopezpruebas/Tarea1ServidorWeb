@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajo: Desarrollo web avanzado Haroldo López</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <h1 class="tituloApp">Generador de código HTML</h1>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="cardview tableGeneratorCardLeft">
+                <h2 class="tituloSubSec">Tabla HTML</h2>
+                <p>Copie y pegue una tabla hecha en excel</p>
+                <form class="formTableGenerator" action="#">
+                    <textarea name="texto" id="texto" cols="30" rows="10"></textarea>
+                    <button type="button" class="btn-primary" onclick="enviarTabla()">Analizar</button>
+                </form>
+                <div class="showPrev tablePrev">
+                    <div id="tablaPrev"></div>
+                </div>
+            </div>
+            <div class="cardview tableGeneratorCardRigth">
+                <textarea disabled id="tablaCode"></textarea>
+            </div>
+        </div>
+
+        <div class="row rowChild rowForm">
+            <div class="cardview tableGeneratorCardLeft">
+                <h2 class="tituloSubSec">Formulario HTML</h2>
+                <p>Escriba el formulario en forma de JSON</p>
+                <form class="formTableGenerator" action="#">
+                    <textarea name="texto" class="formJSON" id="textoJSON" cols="30" rows="10"></textarea>
+                    <button type="button" class="btn-primary" onclick="enviarFormulario()">Analizar</button>
+                </form>
+                <div class="showPrev formPrev">
+                    <div id="formPrev"></div>
+                </div>
+            </div>
+            <div class="cardview tableGeneratorCardRigth">
+                <textarea disabled class="prevCode" id="formCode"></textarea>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        document.getElementById('textoJSON').value = `
+        [
+            {
+                "label":"Nombre",
+                "tipo":"text",
+                "valor":"Haroldo"
+            },
+            {
+                "label":"Telefono",
+                "tipo":"number",
+                "valor":"33996633"
+            },
+            {
+                "label":"Seleccione",
+                "tipo":"select",
+                "valor":"0",
+                "opciones":[
+                    {
+                        "valor":"0",
+                        "text":"Cero"
+                    },
+                    {
+                        "valor":"1",
+                        "text":"Uno"
+                    },
+                    {
+                        "valor":"2",
+                        "text":"Dos"
+                    }
+                ]
+            }
+        ]`
+
+        const enviarTabla = () => {
+            
+            const params = new FormData();
+            params.append('opcion','tablaExcel');
+            params.append('texto',document.getElementById("texto").value);
+
+            fetch('http://54.86.177.149/servidorweb/requests.php',{
+                method: 'POST',
+                body: params
+            })
+            .then(response => {
+                return response.text();
+            })
+            .then(res => {
+                const result = JSON.parse(res);
+                document.getElementById("tablaPrev").innerHTML = result.data
+                document.getElementById("tablaCode").value = result.data
+            });
+
+        }
+
+        const enviarFormulario = () => {
+            
+
+            console.log(JSON.parse(document.getElementById("textoJSON").value));
+
+            const params = new FormData();
+            params.append('opcion','formularioJSON');
+            params.append('texto',document.getElementById("textoJSON").value);
+
+            fetch('http://54.86.177.149/servidorweb/requests.php',{
+                method: 'POST',
+                body: params
+            })
+            .then(response => {
+                return response.text();
+            })
+            .then(res => {
+                const result = JSON.parse(res);
+                document.getElementById("formPrev").innerHTML = result.data
+                document.getElementById("formCode").value = result.data
+            });
+
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+body {
+    padding: 0;
+    margin:0;
+}
+
+h2 {
+    margin:0;
+}
+
+.tituloApp {
+    margin-left:20px;
+    font-size: 20px;
+}
+
+.tituloSubSec {
+    color:#525252;
+}
+
+.tabla {
+    border-collapse: collapse; 
+
+}
+
+.tabla {
+    border-color: #cccccc;
+    border: #cccccc;
+}
+
+.tabla tr td {
+    width: 200px;
+}
+
+.tabla tr:nth-child(1) {
+    background: #448aff;
+    text-align: center;
+    color:white;
+}
+
+.rowChild {
+    margin-top:30px;
+}
+
+.showPrev {
+    margin-top:40px;
+}
+
+.prevCode {
+    height: 500px;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    background-color:#448aff;
+    color:white;
+    height: 50px;
+    width: 100%;
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+    font-family: Roboto,sans-serif;
+    font-size: 14px;
+    letter-spacing: .01em;
+    line-height: 1.6em;
+
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    padding-top: 20px;
+    margin-bottom: 40px;
+}
+
+.row {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    padding-bottom: 40px;
+}
+
+.cardview {
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    z-index: 1;
+    border-radius: 2px;
+    transition: .3s cubic-bezier(.4,0,.2,1);
+}
+
+.tableGeneratorCardRigth {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 50%;
+    margin: 0 10px 0 10px;
+}
+
+.tableGeneratorCardLeft {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 50%;
+    margin: 0 10px 0 10px;
+    padding-top:30px;
+}
+
+.btn-primary {
+    color: white;
+    background-color: #448aff;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    min-width: 88px;
+    height: 36px;
+    margin: 6px 8px;    
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: 500;
+    appearance: button;
+    outline: none;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    border:0;
+    text-transform: uppercase;
+    margin-top:10px;
+}
+
+.btn-primary:hover {
+    margin-top:12px;
+    opacity: 0.9;
+    transition: .4s cubic-bezier(.4,0,.2,1);
+    will-change: background-color,opacity;
+}
+
+#tablaCode {
+    width: 100%;
+    height: 500px;
+}
+
+.formTableGenerator {
+    display: flex;
+    flex-flow: column nowrap;
+    width:80%;
+}
+
+.formJSON {
+    height: 300px!important;
+}
+
+form {
+    display: inline;
+}
+
+#formCode {
+    height: 100%;
+}
+
+.labelChild {
+    width:100px;
+}
+
+.rowForm {
+    height: 700px;
+}
+
+#texto {
+    width:100%;
+}
+
+.formGroup {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-top:5px;
+}
